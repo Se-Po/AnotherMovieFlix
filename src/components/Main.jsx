@@ -1,6 +1,14 @@
+<<<<<<< HEAD
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import requests from '../Requests';
+=======
+import React, { useEffect, useState } from "react";
+import axios from "axios"
+import requests from "../Requests";
+
+
+>>>>>>> main
 
 const Main = () => {
    const [movies, setMovies] = useState([]);
@@ -10,8 +18,12 @@ const Main = () => {
    useEffect(() => {
       const accessToken = import.meta.env.VITE_TMDB_ACCESS_TOKEN;
 
+<<<<<<< HEAD
       axios
          .get(requests.requestPopular, {
+=======
+      axios.get(requests.requestPopular, {   
+>>>>>>> main
             headers: {
                accept: 'application/json',
                Authorization: accessToken,
