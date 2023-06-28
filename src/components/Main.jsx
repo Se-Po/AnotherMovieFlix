@@ -11,25 +11,27 @@ const Main = () => {
 
    const movie = movies[Math.floor(Math.random() * movies.length)];
 
-   useEffect(() => {
-      // const accessToken = import.meta.env.VITE_TMDB_ACCESS_TOKEN;  //**replace with .env key */
+   
 
+   useEffect(() => {
+      const options = {
+         method: 'GET',
+         url: 'https://api.themoviedb.org/3/movie/popular',
+         params: {language: 'en-US', page: '1'},
+         headers: {
+           accept: 'application/json',
+           Authorization: import.meta.env.VITE_TMDB_ACCESS_TOKEN,
+         }
+       };
 
       axios
-         .get(requests.requestPopular, {
-
-            headers: {
-               accept: 'application/json',
-               Authorization: import.meta.env.VITE_TMDB_ACCESS_TOKEN,
-
-            },
-         })
+         .request(options)
          .then(response => {
             setMovies(response.data.results);
          })
-         .catch(error => {
+         .catch(function (error) {
             console.error(error);
-         });
+          });
    }, []);
 
 

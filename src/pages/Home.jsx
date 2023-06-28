@@ -9,7 +9,6 @@ const Home = () => {
       <Main />
       <Row title='Popular' fetchURL={requests.requestPopular}/>
       <Row title='NowPlaying' fetchURL={requests.requestNowPlaying}/>
-      <Row title='Upcoming' fetchURL={requests.requestUpcoming}/>
       <Row title='TopRated' fetchURL={requests.requestTopRated}/>
     </>
   )

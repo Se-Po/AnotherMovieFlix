@@ -1,28 +1,28 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import requests from "../Requests";
+
 
 const Row = ({title,fetchURL}) => {
 const [movies, setMovies] = useState([])
 
   useEffect(() =>{
-    // const accessToken = import.meta.env.VITE_TMDB_ACCESS_TOKEN;  //**replace with .env key */
-
-    axios
-    .get(fetchURL, {
-      
-
+    const options = {
+      method: 'GET',
+      url: fetchURL,
+      params: {language: 'en-US', page: '1'},
       headers: {
         accept: 'application/json',
         Authorization: import.meta.env.VITE_TMDB_ACCESS_TOKEN,
-        
-     },
-  })
-  .then(response => {
+      }
+    };
+
+    axios
+    .request(options)
+    .then(response => {
      setMovies(response.data.results);
   })
-  .catch(error => {
-     console.error(error); //ToDO catch error in axios???
+  .catch(function (error) {
+    console.error(error);
   });
 }, [fetchURL]);
 
