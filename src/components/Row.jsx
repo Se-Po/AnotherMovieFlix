@@ -2,8 +2,10 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 
 
+
 const Row = ({title,fetchURL}) => {
 const [movies, setMovies] = useState([])
+const accessToken = import.meta.env.VITE_TMDB_ACCESS_TOKEN;
 
   useEffect(() =>{
     const options = {
@@ -12,7 +14,7 @@ const [movies, setMovies] = useState([])
       params: {language: 'en-US', page: '1'},
       headers: {
         accept: 'application/json',
-        Authorization: import.meta.env.VITE_TMDB_ACCESS_TOKEN,
+        Authorization: accessToken,
       }
     };
 

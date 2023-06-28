@@ -1,6 +1,7 @@
 
 import React, { useEffect, useState } from "react";
 import axios from "axios"
+
 import requests from "../Requests";
 
 
@@ -11,7 +12,7 @@ const Main = () => {
 
    const movie = movies[Math.floor(Math.random() * movies.length)];
 
-   
+   const accessToken = import.meta.env.VITE_TMDB_ACCESS_TOKEN;
 
    useEffect(() => {
       const options = {
@@ -20,7 +21,7 @@ const Main = () => {
          params: {language: 'en-US', page: '1'},
          headers: {
            accept: 'application/json',
-           Authorization: import.meta.env.VITE_TMDB_ACCESS_TOKEN,
+           Authorization: accessToken,
          }
        };
 
