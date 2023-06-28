@@ -12,7 +12,7 @@ const Main = () => {
    const movie = movies[Math.floor(Math.random() * movies.length)];
 
    useEffect(() => {
-      const accessToken = import.meta.env.VITE_TMDB_ACCESS_TOKEN;
+      // const accessToken = import.meta.env.VITE_TMDB_ACCESS_TOKEN;  //**replace with .env key */
 
 
       axios
@@ -20,7 +20,8 @@ const Main = () => {
 
             headers: {
                accept: 'application/json',
-               Authorization: accessToken,
+               Authorization: import.meta.env.VITE_TMDB_ACCESS_TOKEN,
+
             },
          })
          .then(response => {
