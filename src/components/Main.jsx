@@ -50,7 +50,7 @@ const Main = () => {
                <h1 className='text-3xl md:text-5xl font-bold'>
                   {movie?.title}
                </h1>
-               <div>
+               <div className='my-4'>
                   <button className='border bg-gray-300 text-black border-gray-300 py-2 px-5'>
                      Play
                   </button>

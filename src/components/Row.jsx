@@ -1,12 +1,11 @@
 import axios from 'axios';
-import { FaHeart, FaRegHeart } from 'react-icons/fa';
 import React, { useEffect, useState } from 'react';
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 import Movie from './Movie';
 
 const Row = ({ title, fetchURL, rowID }) => {
    const [movies, setMovies] = useState([]);
-   const [like, setLike] = useState(false);
+
    const accessToken = import.meta.env.VITE_TMDB_ACCESS_TOKEN;
 
    useEffect(() => {
