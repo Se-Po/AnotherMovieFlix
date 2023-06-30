@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from 'react';
-import { auth, db } from '../firabase';
+import { auth, db } from '../firebase';
 import {
    createUserWithEmailAndPassword,
    signInWithEmailAndPassword,
@@ -15,7 +15,7 @@ export function AuthContextProvider({ children }) {
    const [user, setUser] = useState({});
 
    function signUp(email, password) {
-      createUserWithEmailAndPassword(auth, email, password)
+      createUserWithEmailAndPassword(auth, email, password);
       setDoc(doc(db, 'users', email), {
          savedShows: []
       })
@@ -26,7 +26,7 @@ export function AuthContextProvider({ children }) {
    }
 
    function logOut() {
-      return signOut(auth)
+      return signOut(auth);
    }
 
    useEffect(() => {
@@ -34,7 +34,7 @@ export function AuthContextProvider({ children }) {
          setUser(currentUser);
       });
       return () => {
-         unsubscribe()
+         unsubscribe();
       };
    });
 
