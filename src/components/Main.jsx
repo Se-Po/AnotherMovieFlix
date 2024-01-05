@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
+
+const accessToken = import.meta.env.VITE_TMDB_ACCESS_TOKEN;
+
 const Main = () => {
    const [movies, setMovies] = useState([]);
 
    const movie = movies[Math.floor(Math.random() * movies.length)];
 
-   const accessToken = import.meta.env.VITE_TMDB_ACCESS_TOKEN;
+
 
    useEffect(() => {
       const options = {
